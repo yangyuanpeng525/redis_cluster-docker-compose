@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+  redis4:
+    image: redis:4.0.10
+    restart: always
+    container_name: redis4
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 6376:6379
+    volumes:
+      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data:/data

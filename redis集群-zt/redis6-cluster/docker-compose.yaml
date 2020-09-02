@@ -1,0 +1,124 @@
+version: "3.7"
+#networks:
+#  hy-net:
+#    external: true
+
+services:
+  redis6-master1:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-master1
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6318:6318
+#      - 16318:16318
+    volumes:
+      - ./conf1/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data1:/data
+      - ./log1:/var/log/redis
+
+
+  redis6-master2:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-master2
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6328:6328
+#      - 16328:16328
+    volumes:
+      - ./conf2/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data2:/data
+      - ./log2:/var/log/redis
+
+
+
+  redis6-master3:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-master3
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6338:6338
+#      - 16338:16338
+    volumes:
+      - ./conf3/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data3:/data
+      - ./log3:/var/log/redis
+
+
+
+  redis6-slave1:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-slave1
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6348:6348
+#      - 16348:16348
+    volumes:
+      - ./conf4/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data4:/data
+      - ./log4:/var/log/redis
+
+
+
+  redis6-slave2:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-slave2
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6358:6358
+#      - 16358:16358
+    volumes:
+      - ./conf5/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data5:/data
+      - ./log5:/var/log/redis
+
+
+
+
+
+  redis6-slave3:
+    image: redis:6.0.7
+    restart: always
+    container_name: redis6-slave3
+    network_mode: host
+#    networks:
+#      hy-net:
+    environment:
+      - TZ=Asia/Shanghai
+    command: /usr/local/bin/redis-server  /usr/local/etc/redis/redis.conf
+#    ports:
+#      - 6368:6368
+#      - 16368:16368
+    volumes:
+      - ./conf6/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data6:/data
+      - ./log6:/var/log/redis
